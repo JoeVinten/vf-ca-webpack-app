@@ -16,6 +16,12 @@ module.exports = {
 			directory: path.join(__dirname, "build"),
 		},
 		port: 3000,
+		open: true,
+		proxy: {
+			"/": {
+				target: "http://localhost:3000",
+			},
+		},
 	},
 	module: {
 		rules: [
@@ -24,6 +30,13 @@ module.exports = {
 				test: /.js$|jsx/,
 				loader: "babel-loader",
 			},
+			{
+				test: /\.(jpeg|png)$/,
+				use: {
+					loader: "url-loader",
+				},
+			},
+
 			{
 				test: /\.css$/,
 				loader: "css-loader",
