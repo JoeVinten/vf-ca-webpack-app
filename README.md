@@ -45,6 +45,30 @@ We can now remove all the webpack junk.
 
 `yarn remove source-map-loader url-loader webpack webpack-cli webpack-dev-server css-loader babel-loader `
 
+## Adding other plugins
+
+We can add other plugins and there's a ton you can find on the [awesome vite github](https://github.com/vitejs/awesome-vite#plugins).
+
+Let's add some image minification for our jpegs by using the [imagemin plugin](https://github.com/vbenjs/vite-plugin-imagemin).
+
+It's as simple as installing the plugin
+
+yarn add vite-plugin-imagemin -D
+
+````
+
+Then after this just add it to your plugins section like so:
+
+```js
+...
+		viteImagemin({
+			mozjpeg: {
+				quality: 20,
+			},
+		}),
+...
+````
+
 ## Proxying
 
 Let's proxy our API endpoint.
@@ -69,31 +93,7 @@ server: {
 	...
 ```
 
-When making requests to our API we will now be rewriting that path and changing the origin.
-
-## Adding other plugins
-
-We can add other plugins and there's a ton you can find on the [awesome vite github](https://github.com/vitejs/awesome-vite#plugins).
-
-Let's add some image minification for our jpegs by using the [imagemin plugin](https://github.com/vbenjs/vite-plugin-imagemin).
-
-It's as simple as installing the plugin
-
-yarn add vite-plugin-imagemin -D
-
-````
-
-Then after this just add it to your plugins section like so:
-
-```js
-...
-		viteImagemin({
-			mozjpeg: {
-				quality: 20,
-			},
-		}),
-...
-````
+When making requests to our API we will now be rewriting that path and changing the request header.
 
 ## Build optimisations
 
