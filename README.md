@@ -71,7 +71,7 @@ server: {
 
 When making requests to our API we will now be rewriting that path and changing the origin.
 
-## Adding other plugins
+## Adding other plugins
 
 We can add other plugins and there's a ton you can find on the [awesome vite github](https://github.com/vitejs/awesome-vite#plugins).
 
